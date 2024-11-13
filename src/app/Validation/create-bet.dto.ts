@@ -1,17 +1,21 @@
-import { IsNotEmpty, IsString } from "class-validator";
+import { IsNotEmpty, IsNumber, IsString, IsUUID } from "class-validator";
 
 export class CreateBetDto {
-    @IsString()
+    @IsUUID()
+    @IsNotEmpty({ message: 'User is required' })
+    user_id: string;
+
+    @IsUUID()
     @IsNotEmpty({ message: 'User is required' })
     enemy_id: string;
 
-    @IsString()
+    @IsNumber()
     @IsNotEmpty({ message: 'User team is required' })
-    user_team: string;
+    user_team: number;
 
-    @IsString()
+    @IsNumber()
     @IsNotEmpty({ message: 'Enemy team is required' })
-    enemy_team: string;
+    enemy_team: number;
 
     @IsString()
     @IsNotEmpty({ message: 'Bet is required' })

@@ -31,10 +31,10 @@ export class Tallies {
   enemyID: Users;
 
   @Column()
-  user_team: string;
+  user_team: number;
 
   @Column()
-  enemy_team: string;
+  enemy_team: number;
 
   @ManyToOne(() => Teams, (team) => team.userTeamTallies)
   @JoinColumn({ name: 'user_team' })
